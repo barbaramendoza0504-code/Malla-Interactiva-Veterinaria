@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Malla Curricular</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Malla Curricular</h1>
+
+<div class="malla">
+  <!-- Primer ciclo (siempre desbloqueado) -->
+  <div class="curso unlocked" data-id="mate1">
+    Matemática I
+  </div>
+
+  <div class="curso unlocked" data-id="intro">
+    Introducción
+  </div>
+
+  <!-- Segundo ciclo -->
+  <div class="curso locked" data-id="mate2" data-prereq="mate1">
+    Matemática II
+  </div>
+
+  <div class="curso locked" data-id="fisica" data-prereq="mate1">
+    Física
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
