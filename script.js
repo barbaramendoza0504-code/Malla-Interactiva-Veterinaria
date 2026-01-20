@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const cursos = document.querySelectorAll(".curso");
 
-  function puedeDesbloquear(curso) {
+  function requisitosCumplidos(curso) {
     const prereq = curso.dataset.prereq;
     if (!prereq) return true;
 
@@ -10,31 +10,32 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
-  function actualizarMalla() {
+  function actualizarEstados() {
     cursos.forEach(curso => {
       if (curso.classList.contains("completed")) return;
 
-      if (puedeDesbloquear(curso)) {
+      if (requisitosCumplidos(curso)) {
         curso.classList.remove("locked");
-        curso.classList.add("unlocked");
+        curso.classList.add("available");
       } else {
-        curso.classList.remove("unlocked");
+        curso.classList.remove("available");
         curso.classList.add("locked");
       }
     });
   }
 
-  function bloquearDependientes(cursoBase) {
-    const idBase = cursoBase.dataset.id;
-
+  function bloquearDependientes(idBase) {
     cursos.forEach(curso => {
       const prereq = curso.dataset.prereq;
       if (!prereq) return;
 
       if (prereq.split(",").includes(idBase)) {
-        curso.classList.remove("completed", "unlocked");
+        if (curso.classList.contains("completed")) {
+          curso.classList.remove("completed");
+        }
+        curso.classList.remove("available");
         curso.classList.add("locked");
-        bloquearDependientes(curso); // recursivo
+        bloquearDependientes(curso.dataset.id);
       }
     });
   }
@@ -42,25 +43,25 @@ document.addEventListener("DOMContentLoaded", () => {
   cursos.forEach(curso => {
     curso.addEventListener("click", () => {
 
-      // NO se puede hacer click si está bloqueado
+      // 🚫 No se puede clickear si está bloqueado
       if (curso.classList.contains("locked")) return;
 
-      // DESAPROBAR
+      // ❌ Desaprobar
       if (curso.classList.contains("completed")) {
         curso.classList.remove("completed");
-        curso.classList.add("unlocked");
-        bloquearDependientes(curso);
+        curso.classList.add("available");
+        bloquearDependientes(curso.dataset.id);
       }
-      // APROBAR
+      // ✅ Aprobar
       else {
-        curso.classList.remove("unlocked");
+        curso.classList.remove("available");
         curso.classList.add("completed");
       }
 
-      actualizarMalla();
+      actualizarEstados();
     });
   });
 
-  actualizarMalla();
+  actualizarEstados();
 });
 
