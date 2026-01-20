@@ -3,14 +3,14 @@ body {
   margin: 0;
   padding: 30px;
   min-height: 100vh;
-  font-family: "HarmonyOS Sans SC", "Segoe UI", "Arial", sans-serif;
 
-  background-image: url("65220c9860be79fc20aa1130fad02df4.jpg");
-  background-size: cover;
+  background-image: url("fondo.jpg");
+  background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
   background-attachment: fixed;
 
-  overflow-y: auto;
+  font-family: "HarmonyOS Sans SC", "Segoe UI", Arial, sans-serif;
 }
 
 /* Capa suave para legibilidad */
