@@ -1,118 +1,152 @@
-/* ===== FONDO GENERAL ===== */
+/* ===============================
+   FUENTES
+================================ */
+@import url('https://fonts.googleapis.com/css2?family=HarmonyOS+Sans+SC:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Harrington&display=swap');
+
+/* ===============================
+   CONFIGURACIÓN GENERAL
+================================ */
+* {
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  padding: 30px;
-  min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
 
-  background-image: url("fondo.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
+    /* FONDO */
+    background-image: url("img/fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
-  font-family: "HarmonyOS Sans SC", "Segoe UI", Arial, sans-serif;
+    /* TEXTO GENERAL */
+    color: #6b0028;
+
+    /* SCROLL */
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
-/* Capa suave para legibilidad */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(255, 240, 245, 0.85);
-  z-index: -1;
+/* ===============================
+   CONTENEDOR PRINCIPAL
+================================ */
+.container {
+    width: 100%;
+    padding: 40px 60px;
 }
 
-/* ===== TITULOS ===== */
+/* ===============================
+   TÍTULO PRINCIPAL
+================================ */
 h1 {
-  text-align: center;
-  font-size: 2.6rem;
-  color: #7a0026;
-  margin-bottom: 10px;
+    text-align: center;
+    font-family: 'Harrington', cursive;
+    font-size: 42px;
+    margin-bottom: 10px;
+    color: #8b0036;
 }
 
+.subtitulo {
+    text-align: center;
+    font-family: 'HarmonyOS Sans SC', sans-serif;
+    font-size: 15px;
+    margin-bottom: 40px;
+    color: #7a0030;
+}
+
+/* ===============================
+   AÑOS Y CICLOS
+================================ */
 h2 {
-  margin-top: 40px;
-  color: #8b0036;
-  border-bottom: 2px solid #d48ca3;
-  padding-bottom: 5px;
+    font-family: 'Harrington', cursive;
+    font-size: 28px;
+    margin-top: 50px;
+    border-bottom: 2px solid #c45c85;
+    padding-bottom: 5px;
+    color: #8b0036;
 }
 
 h3 {
-  margin-top: 25px;
-  color: #9c2f55;
+    font-family: 'Harrington', cursive;
+    font-size: 22px;
+    margin-top: 30px;
+    color: #8b0036;
 }
 
-/* ===== NOTA ===== */
-.nota {
-  text-align: center;
-  color: #5a2a3a;
-  font-size: 0.95rem;
-  margin-bottom: 30px;
+/* ===============================
+   GRILLA DE CURSOS
+================================ */
+.cursos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-/* ===== ESTRUCTURA DE LA MALLA ===== */
-.malla {
-  max-width: 1200px;
-  margin: auto;
-}
-
-/* Cada ciclo como columnas */
-.ciclo {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  gap: 18px;
-  margin-top: 15px;
-  margin-bottom: 35px;
-}
-
-/* ===== CURSOS ===== */
+/* ===============================
+   CURSOS (BOTONES)
+================================ */
 .curso {
-  font-family: "Harrington", "Georgia", serif;
-  padding: 18px 14px;
-  border-radius: 16px;
-  text-align: center;
-  font-size: 1rem;
-  line-height: 1.3;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
-  transition: transform 0.25s, box-shadow 0.25s;
-  user-select: none;
+    padding: 14px 16px;
+    border-radius: 18px;
+    text-align: center;
+
+    font-family: 'HarmonyOS Sans SC', sans-serif;
+    font-size: 14px;
+
+    background-color: #8b0036;
+    color: #ffffff;
+
+    cursor: pointer;
+    user-select: none;
+
+    transition: all 0.25s ease;
 }
 
-/* Estados */
-.locked {
-  background: #f2d4dc;
-  color: #7a6a70;
-  cursor: not-allowed;
-  opacity: 0.75;
+/* Hover */
+.curso:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-.available {
-  background: #f5a6b8;
-  color: #5a0022;
-  cursor: pointer;
+/* ===============================
+   ESTADOS
+================================ */
+.curso.bloqueado {
+    background-color: #f3b3c6;
+    color: #6b0028;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
 }
 
-.completed {
-  background: #8b0036;
-  color: #fff;
+.curso.aprobado {
+    background-color: #6b0028;
+    color: #ffffff;
 }
 
-/* Hover solo si se puede interactuar */
-.available:hover,
-.completed:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.18);
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
 }
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  .curso {
-    font-size: 0.95rem;
-    padding: 15px;
-  }
-}
-
