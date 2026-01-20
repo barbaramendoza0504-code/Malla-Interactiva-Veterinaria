@@ -1,42 +1,26 @@
 const cursos = document.querySelectorAll(".curso");
 
-let aprobados = JSON.parse(localStorage.getItem("aprobados")) || [];
-
-function actualizarEstado() {
-  cursos.forEach(curso => {
-    const id = curso.dataset.id;
-    const prereq = curso.dataset.prereq;
-
-    if (aprobados.includes(id)) {
-      curso.classList.add("completed");
-      curso.classList.remove("locked");
-      curso.classList.add("unlocked");
-    }
-
-    if (prereq) {
-      const requisitos = prereq.split(",");
-      const cumplidos = requisitos.every(r => aprobados.includes(r));
-
-      if (cumplidos) {
-        curso.classList.remove("locked");
-        curso.classList.add("unlocked");
-      }
-    }
-  });
+function checkPrereq(prereq) {
+  return prereq.split(",").every(id =>
+    document.querySelector(`[data-id="${id}"]`)?.classList.contains("completed")
+  );
 }
 
 cursos.forEach(curso => {
   curso.addEventListener("click", () => {
-    const id = curso.dataset.id;
-
     if (curso.classList.contains("locked")) return;
 
-    if (!aprobados.includes(id)) {
-      aprobados.push(id);
-      localStorage.setItem("aprobados", JSON.stringify(aprobados));
-      actualizarEstado();
-    }
+    curso.classList.add("completed");
+    curso.classList.remove("unlocked");
+
+    cursos.forEach(c => {
+      if (c.classList.contains("locked") && c.dataset.prereq) {
+        if (checkPrereq(c.dataset.prereq)) {
+          c.classList.remove("locked");
+          c.classList.add("unlocked");
+        }
+      }
+    });
   });
 });
 
-actualizarEstado();
