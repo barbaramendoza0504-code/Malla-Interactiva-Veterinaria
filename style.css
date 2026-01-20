@@ -1,152 +1,102 @@
-/* ===============================
-   FUENTES
-================================ */
-@import url('https://fonts.googleapis.com/css2?family=HarmonyOS+Sans+SC:wght@400;600&display=swap');
+/* IMPORTAR FUENTES */
 @import url('https://fonts.googleapis.com/css2?family=Harrington&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=HarmonyOS+Sans&display=swap');
 
-/* ===============================
-   CONFIGURACIÓN GENERAL
-================================ */
+/* RESET */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+/* FONDO GENERAL */
 body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-
-    /* FONDO */
-    background-image: url("img/fondo.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
-    /* TEXTO GENERAL */
-    color: #6b0028;
-
-    /* SCROLL */
-    overflow-y: auto;
-    overflow-x: hidden;
+  font-family: 'HarmonyOS Sans', sans-serif;
+  background-image: url("img/fondo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #5a0f2e;
 }
 
-/* ===============================
-   CONTENEDOR PRINCIPAL
-================================ */
+/* CONTENEDOR */
 .container {
-    width: 100%;
-    padding: 40px 60px;
+  padding: 40px 60px;
+  backdrop-filter: none; /* QUITAMOS OPACIDAD */
 }
 
-/* ===============================
-   TÍTULO PRINCIPAL
-================================ */
+/* TÍTULO PRINCIPAL */
 h1 {
-    text-align: center;
-    font-family: 'Harrington', cursive;
-    font-size: 42px;
-    margin-bottom: 10px;
-    color: #8b0036;
+  text-align: center;
+  font-family: 'Harrington', cursive;
+  font-size: 42px;
+  margin-bottom: 10px;
+  color: #7a0c34;
 }
 
-.subtitulo {
-    text-align: center;
-    font-family: 'HarmonyOS Sans SC', sans-serif;
-    font-size: 15px;
-    margin-bottom: 40px;
-    color: #7a0030;
+/* SUBTÍTULO */
+.subtitle {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-/* ===============================
-   AÑOS Y CICLOS
-================================ */
-h2 {
-    font-family: 'Harrington', cursive;
-    font-size: 28px;
-    margin-top: 50px;
-    border-bottom: 2px solid #c45c85;
-    padding-bottom: 5px;
-    color: #8b0036;
+/* AÑO */
+.year {
+  margin-top: 50px;
 }
 
-h3 {
-    font-family: 'Harrington', cursive;
-    font-size: 22px;
-    margin-top: 30px;
-    color: #8b0036;
+.year h2 {
+  font-family: 'Harrington', cursive;
+  font-size: 32px;
+  border-bottom: 2px solid #b84c6a;
+  margin-bottom: 20px;
 }
 
-/* ===============================
-   GRILLA DE CURSOS
-================================ */
-.cursos {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 18px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+/* CICLO */
+.cycle {
+  margin-bottom: 30px;
 }
 
-/* ===============================
-   CURSOS (BOTONES)
-================================ */
-.curso {
-    padding: 14px 16px;
-    border-radius: 18px;
-    text-align: center;
-
-    font-family: 'HarmonyOS Sans SC', sans-serif;
-    font-size: 14px;
-
-    background-color: #8b0036;
-    color: #ffffff;
-
-    cursor: pointer;
-    user-select: none;
-
-    transition: all 0.25s ease;
+.cycle h3 {
+  font-family: 'Harrington', cursive;
+  margin-bottom: 15px;
 }
 
-/* Hover */
-.curso:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+/* CURSOS EN COLUMNAS */
+.courses {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
 }
 
-/* ===============================
-   ESTADOS
-================================ */
-.curso.bloqueado {
-    background-color: #f3b3c6;
-    color: #6b0028;
-    cursor: not-allowed;
-    box-shadow: none;
-    transform: none;
+/* CURSO */
+.course {
+  font-family: 'HarmonyOS Sans', sans-serif;
+  background-color: #8b0a3c;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
 }
 
-.curso.aprobado {
-    background-color: #6b0028;
-    color: #ffffff;
+/* APROBADO */
+.course.approved {
+  background-color: #f4a6b8;
+  color: #5a0f2e;
 }
 
-/* ===============================
-   RESPONSIVE
-================================ */
-@media (max-width: 768px) {
-    .container {
-        padding: 20px;
-    }
-
-    h1 {
-        font-size: 34px;
-    }
-
-    h2 {
-        font-size: 24px;
-    }
-
-    h3 {
-        font-size: 20px;
-    }
+/* BLOQUEADO */
+.course.locked {
+  background-color: #d8b0bd;
+  color: #7a5a66;
+  cursor: not-allowed;
 }
+
+/* HOVER */
+.course:not(.locked):hover {
+  transform: scale(1.05);
+}
+
