@@ -1,21 +1,42 @@
 const cursos = document.querySelectorAll(".curso");
 
-cursos.forEach(curso => {
-  curso.addEventListener("click", () => {
-    if (curso.classList.contains("locked")) {
-      alert("Este curso tiene prerrequisitos");
-      return;
+let aprobados = JSON.parse(localStorage.getItem("aprobados")) || [];
+
+function actualizarEstado() {
+  cursos.forEach(curso => {
+    const id = curso.dataset.id;
+    const prereq = curso.dataset.prereq;
+
+    if (aprobados.includes(id)) {
+      curso.classList.add("completed");
+      curso.classList.remove("locked");
+      curso.classList.add("unlocked");
     }
 
-    curso.classList.add("completed");
+    if (prereq) {
+      const requisitos = prereq.split(",");
+      const cumplidos = requisitos.every(r => aprobados.includes(r));
 
+      if (cumplidos) {
+        curso.classList.remove("locked");
+        curso.classList.add("unlocked");
+      }
+    }
+  });
+}
+
+cursos.forEach(curso => {
+  curso.addEventListener("click", () => {
     const id = curso.dataset.id;
 
-    cursos.forEach(c => {
-      if (c.dataset.prereq === id) {
-        c.classList.remove("locked");
-        c.classList.add("unlocked");
-      }
-    });
+    if (curso.classList.contains("locked")) return;
+
+    if (!aprobados.includes(id)) {
+      aprobados.push(id);
+      localStorage.setItem("aprobados", JSON.stringify(aprobados));
+      actualizarEstado();
+    }
   });
 });
+
+actualizarEstado();
