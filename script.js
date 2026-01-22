@@ -1,4 +1,13 @@
-   );
+document.addEventListener("DOMContentLoaded", () => {
+  const cursos = document.querySelectorAll(".curso");
+
+  function requisitosCumplidos(curso) {
+    const prereq = curso.dataset.prereq;
+    if (!prereq) return true;
+
+    return prereq.split(",").every(id =>
+      document.querySelector(`[data-id="${id}"]`)?.classList.contains("completed")
+    );
   }
 
   function actualizarEstados() {
@@ -6,7 +15,7 @@
     cursos.forEach(curso => {
       if (curso.classList.contains("completed")) return;
 
-@@ -30,38 +30,40 @@ document.addEventListener("DOMContentLoaded", () => {
+@@ -30,38 +30,40 @@
       if (!prereq) return;
 
       if (prereq.split(",").includes(idBase)) {
