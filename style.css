@@ -1,242 +1,122 @@
 /* ===== FONDO GENERAL ===== */
-Cuerpo {
-  Margen: 0;
-  Acolchado: 30px;
-  Altura mínima: 100VH;
+body {
+  margin: 0;
+  padding: 30px;
+  min-height: 100vh;
+  font-family: "HarmonyOS Sans SC", "Segoe UI", "Arial", sans-serif;
 
-  Imagen de fondo: URL("fondo.jpg");
-  Repetición de fondo: sin repetición;
-  Posición-Antecedentes: Centro;
-  Tamaño de fondo: Portada;
-  antecedentes-adjunto: fijo;
-/* ===============================
-   FUENTES
-================================ */
-@import url('https://fonts.googleapis.com/css2?family=HarmonyOS+Sans+SC:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Harrington&display=swap');
+  background-image: url("65220c9860be79fc20aa1130fad02df4.jpg");
+  background-size: cover;
+  background-image: url("fondo.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 
-/* ===============================
-   CONFIGURACIÓN GENERAL
-================================ */
-* {
-    Tamaño de caja: caja de borde;
-}
-
-   familia de fuentes: "HarmonyOS Sans SC", "Segoe UI", Arial, sans-serif;
-Cuerpo {
-    Margen: 0;
-    Acolchado: 0;
-    Altura mínima: 100VH;
-
-    /* FONDO */
-    Imagen de fondo: URL ("IMG/fondo.jpg");
-    Tamaño de fondo: Portada;
-    Posición-Antecedentes: Centro;
-    Repetición de fondo: sin repetición;
-    antecedentes-adjunto: fijo;
-
-    /* TEXTO GENERAL */
-    Color: #6B0028;
-
-    /*PERGAMINO*/
-    desbordamiento: auto;
-    Overflow-X: oculto;
+  overflow-y: auto;
+  font-family: "HarmonyOS Sans SC", "Segoe UI", Arial, sans-serif;
 }
 
 /* Capa suave para legibilidad */
-cuerpo::antes {
-  Contenido: "";
-  posición: fija;
-  Inserto: 0;
-   Antecedentes: RGBA (255, 240, 245, 0,85);
-  Z-índice: -1;
-/* ===============================
-   CONTENEDOR PRINCIPAL
-================================ */
-. contenedor {
-    Ancho: 100%;
-    Acolchado: 40px 60px;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 240, 245, 0.85);
+  z-index: -1;
 }
 
-/* ===== TÍTULOS ===== */
-/* ===============================
-   TÍTULO PRINCIPAL
-================================ */
+/* ===== TITULOS ===== */
 h1 {
   text-align: center;
-  Tamaño de fuente: 2,6rem;
-  color: #7A0026;
-  Margen Bottom: 10px;
-    text-align: center;
-    familia tipográfica: 'Harrington', cursiva;
-    Tamaño de fuente: 42px;
-    Margen Bottom: 10px;
-    color: #8b0036;
+  font-size: 2.6rem;
+  color: #7a0026;
+  margin-bottom: 10px;
 }
 
-. Subtítulo {
-    text-align: center;
-    familia de fuentes: 'HarmonyOS Sans SC', sans-serif;
-    Tamaño de fuente: 15px;
-    Margen Bottom: 40px;
-    color: #7A0030;
-}
-
-/* ===============================
-   AÑOS Y CICLOS
-================================ */
 h2 {
-  Margen-Máximo: 40px;
+  margin-top: 40px;
   color: #8b0036;
-  Borde Inferior: 2px sólidos #d48CA3;
-  Acolchado-Fondo: 5px;
-    familia tipográfica: 'Harrington', cursiva;
-    Tamaño de fuente: 28px;
-    Margen-Máximo: 50px;
-    Borde-Fondo: 2px sólidos #c45c85;
-    Acolchado-Fondo: 5px;
-    color: #8b0036;
+  border-bottom: 2px solid #d48ca3;
+  padding-bottom: 5px;
 }
 
 h3 {
-  Margen Máximo: 25px;
+  margin-top: 25px;
   color: #9c2f55;
-    familia tipográfica: 'Harrington', cursiva;
-    Tamaño de fuente: 22px;
-    Margen Máximo: 30px;
-    color: #8b0036;
 }
 
 /* ===== NOTA ===== */
-. nota {
+.nota {
   text-align: center;
   color: #5a2a3a;
-  Tamaño de fuente: 0,95rem;
-  Margen Bottom: 30px;
-/* ===============================
-   GRILLA DE CURSOS
-================================ */
-. Cursos {
-    pantalla: cuadrícula;
-    cuadrícula-plantilla-columnas: repetir(auto-fill, minmax(200px, 1fr));
-    Diferencia: 18px;
-    Margen Máximo: 20px;
-    Margen Bottom: 20px;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
 }
 
 /* ===== ESTRUCTURA DE LA MALLA ===== */
-. Malla {
-  Ancho máximo: 1200px;
-  margen: auto;
+.malla {
+  max-width: 1200px;
+  margin: auto;
 }
-/* ===============================
-   CURSOS (BOTONES)
-================================ */
-. Curso {
-    Acolchado: 14px 16px;
-    Radio de frontera: 18px;
-    text-align: center;
 
 /* Cada ciclo como columnas */
-. ciclo {
-  pantalla: cuadrícula;
-  cuadrícula-plantillas-columnas: repetir(auto-fill, minmax(210px, 1fr));
-  Diferencia: 18px;
-  Margen Máximo: 15px;
-  Margen-Bottom: 35px;
+.ciclo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 18px;
+  margin-top: 15px;
+  margin-bottom: 35px;
 }
-    familia de fuentes: 'HarmonyOS Sans SC', sans-serif;
-    Tamaño de fuente: 14px;
 
 /* ===== CURSOS ===== */
-. Curso {
-   familia de tipografías: "Harrington", "Georgia", serif;
-  Acolchado: 18px 14px;
-  Radio de frontera: 16px;
+.curso {
+  font-family: "Harrington", "Georgia", serif;
+  padding: 18px 14px;
+  border-radius: 16px;
   text-align: center;
-  Tamaño de fuente: 1rem;
-  Altura de línea: 1,3;
-  Sombra de caja: 0 8px 18px rgba(0,0,0,0,12);
-  transición: transformación 0,25s, sombra caja 0,25s;
-  user-select: ninguno;
+  font-size: 1rem;
+  line-height: 1.3;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  transition: transform 0.25s, box-shadow 0.25s;
+  user-select: none;
 }
-    Color de fondo: #8B0036;
-    color: #ffffff;
 
 /* Estados */
-. bloqueado {
-  Antecedentes: #F2D4DC;
+.locked {
+  background: #f2d4dc;
   color: #7a6a70;
-  cursor: no permitido;
-  opacidad: 0,75;
-}
-    cursor: puntero;
-    user-select: ninguno;
-
-. Disponible {
-  Antecedentes: #F5A6B8;
-  Color: #5A0022;
-  cursor: puntero;
-    transición: todos los 0,25s de facilidad;
+  cursor: not-allowed;
+  opacity: 0.75;
 }
 
-. Completado {
-  Antecedentes: #8B0036;
+.available {
+  background: #f5a6b8;
+  color: #5a0022;
+  cursor: pointer;
+}
+
+.completed {
+  background: #8b0036;
   color: #fff;
-/* Flota */
-. curso:hover {
-    transformar: scale(1.05);
-    Sombra de caja: 0 6px 15px rgba(0, 0, 0, 0,2);
 }
 
 /* Hover solo si se puede interactuar */
-. disponible: Flotar,
-. completado:pasar el cursor {
-  transformar: translateY(-4px);
-  Sombra de caja: 0 12px 24px rgba(0,0,0,0,18);
-/* ===============================
-   ESTADOS
-================================ */
-. Curso. bloqueado {
-    Color de fondo: #F3B3C6;
-    Color: #6B0028;
-    cursor: no permitido;
-    sombra-caja: ninguna;
-    transformar: ninguno;
+.available:hover,
+.completed:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.18);
 }
 
-/* ===== RESPUESTA ===== */
-@media (ancho máximo: 600px) {
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
   h1 {
-    Tamaño-fuente: 2rem;
+    font-size: 2rem;
   }
 
- . Curso {
-    Tamaño de fuente: 0,95rem;
-    Acolchado: 15px;
+  .curso {
+    font-size: 0.95rem;
+    padding: 15px;
   }
-. Curso. aprobado {
-    Color de fondo: #6B0028;
-    color: #ffffff;
 }
-
-/* ===============================
- RESPUESTA
-================================ */
-@media (ancho máximo: 768px) {
- . contenedor {
-        Relleno: 20px;
-    }
-
-    h1 {
-        Tamaño de fuente: 34px;
-    }
-
-    h2 {
-        Tamaño de fuente: 24px;
-    }
-
-    h3 {
-        Tamaño de fuente: 20px;
-    }
-}
+~
