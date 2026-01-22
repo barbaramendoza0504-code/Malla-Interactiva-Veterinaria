@@ -1,69 +1,31 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const cursos = document.querySelectorAll(".curso");
+const courses = document.querySelectorAll('.course');
 
-  function requisitosCumplidos(curso) {
-    const prereq = curso.dataset.prereq;
-    if (!prereq) return true;
+courses.forEach(course => {
+  course.addEventListener('click', () => {
+    if (course.classList.contains('locked')) return;
 
-    return prereq.split(",").every(id =>
-      document.querySelector(`[data-id="${id}"]`)?.classList.contains("completed")
-    );
-  }
-
-  function actualizarDisponibilidad() {
-    cursos.forEach(curso => {
-      if (curso.classList.contains("completed")) return;
-
-      if (requisitosCumplidos(curso)) {
-        curso.classList.remove("locked");
-        curso.classList.add("available");
-      } else {
-        curso.classList.remove("available");
-        curso.classList.add("locked");
-      }
-    });
-  }
-
-  function bloquearDependientes(idBase) {
-    cursos.forEach(curso => {
-      const prereq = curso.dataset.prereq;
-      if (!prereq) return;
-
-      if (prereq.split(",").includes(idBase)) {
-        curso.classList.remove("completed", "available");
-        curso.classList.add("locked");
-        bloquearDependientes(curso.dataset.id);
-      }
-    });
-  }
-
-  // 👉 CLICK SIMPLE = APROBAR
-  cursos.forEach(curso => {
-    curso.addEventListener("click", e => {
-      if (curso.classList.contains("locked")) return;
-      if (curso.classList.contains("completed")) return;
-
-      curso.classList.remove("available");
-      curso.classList.add("completed");
-
-      actualizarDisponibilidad();
-    });
+    course.classList.toggle('approved');
+    unlockCourses();
   });
 
-  // 👉 DOBLE CLICK = DESAPROBAR
-  cursos.forEach(curso => {
-    curso.addEventListener("dblclick", e => {
-      e.preventDefault();
-
-      if (!curso.classList.contains("completed")) return;
-
-      curso.classList.remove("completed");
-      curso.classList.add("available");
-
-      bloquearDependientes(curso.dataset.id);
-      actualizarDisponibilidad();
-    });
+  course.addEventListener('dblclick', () => {
+    course.classList.remove('approved');
+    unlockCourses();
   });
-
-  actualizarDisponibilidad();
 });
+
+function unlockCourses() {
+  courses.forEach(course => {
+    const prereq = course.dataset.prereq;
+    if (!prereq) return;
+
+    const prereqCourse = document.querySelector(`[data-id="${prereq}"]`);
+    if (prereqCourse && prereqCourse.classList.contains('approved')) {
+      course.classList.remove('locked');
+    } else {
+      course.classList.add('locked');
+      course.classList.remove('approved');
+    }
+  });
+}
+
