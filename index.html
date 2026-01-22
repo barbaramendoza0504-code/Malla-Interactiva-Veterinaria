@@ -2,162 +2,144 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Malla Interactiva – Medicina Veterinaria</title>
+  <title>Malla Interactiva Medicina Veterinaria</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="overlay">
-  <h1>Malla Interactiva – Medicina Veterinaria</h1>
-  <p class="subtitle">Click para aprobar · Doble click para desaprobar</p>
+<h1>Malla Interactiva – Medicina Veterinaria</h1>
+<p class="nota">Haz clic en un curso para aprobarlo y desbloquear los siguientes</p>
+
+<div class="malla">
 
 <!-- ================= PRIMER AÑO ================= -->
-<div class="year">
+<section>
 <h2>Primer Año</h2>
 
-<div class="cycle">
 <h3>Ciclo 1</h3>
-<div class="courses">
-  <div class="course" data-id="quimica">Química</div>
-  <div class="course" data-id="mate">Matemáticas General</div>
-  <div class="course" data-id="biologia">Biología</div>
-  <div class="course" data-id="desempeno">Desempeño Universitario</div>
-  <div class="course" data-id="lenguaje">Lenguaje y Comunicación</div>
-  <div class="course" data-id="introvet">Introducción a la Med. Vet. Zoo</div>
-</div>
+<div class="ciclo">
+  <div class="curso unlocked" data-id="quimica">Química</div>
+  <div class="curso unlocked" data-id="mate">Matemáticas General</div>
+  <div class="curso unlocked" data-id="biologia">Biología</div>
+  <div class="curso unlocked" data-id="desempeno">Desempeño Universitario</div>
+  <div class="curso unlocked" data-id="lenguaje">Lenguaje y Comunicación</div>
+  <div class="curso unlocked" data-id="intro_mv">Introducción a la Med Vet Zoo</div>
 </div>
 
-<div class="cycle">
 <h3>Ciclo 2</h3>
-<div class="courses">
-  <div class="course locked" data-prereq="biologia">Zoología</div>
-  <div class="course locked" data-prereq="lenguaje">Realidad Nacional</div>
-  <div class="course">Inglés</div>
-  <div class="course locked" data-prereq="desempeno">Educación Ambiental</div>
-  <div class="course locked" data-prereq="quimica">Bioquímica</div>
-  <div class="course locked" data-prereq="biologia">Anatomía de Animales Domésticos</div>
+<div class="ciclo">
+  <div class="curso locked" data-id="zoologia" data-prereq="biologia">Zoología</div>
+  <div class="curso locked" data-id="realidad" data-prereq="lenguaje">Realidad Nacional</div>
+  <div class="curso unlocked" data-id="ingles">Inglés</div>
+  <div class="curso unlocked" data-id="edu_ambiental">Educación Ambiental</div>
+  <div class="curso locked" data-id="bioquimica" data-prereq="quimica">Bioquímica</div>
+  <div class="curso locked" data-id="anatomia" data-prereq="biologia">Anatomía de Animales Domésticos</div>
 </div>
-</div>
-</div>
+</section>
 
 <!-- ================= SEGUNDO AÑO ================= -->
-<div class="year">
+<section>
 <h2>Segundo Año</h2>
 
-<div class="cycle">
 <h3>Ciclo 3</h3>
-<div class="courses">
-  <div class="course locked" data-prereq="introvet">Introducción a la Investigación</div>
-  <div class="course locked" data-prereq="biologia">Histología y Embriología Animal</div>
-  <div class="course">Etología</div>
-  <div class="course locked" data-prereq="mate">Estadística General</div>
-  <div class="course locked" data-prereq="biologia">Biología Molecular y Genética</div>
-  <div class="course locked" data-prereq="anatomia">Biofísica Veterinaria</div>
-</div>
+<div class="ciclo">
+  <div class="curso locked" data-id="intro_inv" data-prereq="lenguaje,intro_mv">Introducción a la Investigación</div>
+  <div class="curso locked" data-id="histologia" data-prereq="biologia">Histología y Embriología Animal</div>
+  <div class="curso unlocked" data-id="etologia" data-prereq="zoologia">Etología</div>
+  <div class="curso locked" data-id="estadistica" data-prereq="mate">Estadística General</div>
+  <div class="curso locked" data-id="biomol" data-prereq="biologia">Biología Molecular y Genética</div>
+  <div class="curso locked" data-id="biofisica" data-prereq="anatomia">Biofísica Veterinaria</div>
 </div>
 
-<div class="cycle">
 <h3>Ciclo 4</h3>
-<div class="courses">
-  <div class="course locked" data-prereq="bioquimica">Microbiología Veterinaria</div>
-  <div class="course locked" data-prereq="biologiamol">Mejoramiento Genético</div>
-  <div class="course locked" data-prereq="bioquimica">Inmunología Veterinaria</div>
-  <div class="course locked" data-prereq="biofisica">Fisiología Animal</div>
-  <div class="course locked" data-prereq="desempeno">Deontología Profesional y Bioética Veterinaria</div>
-  <div class="course locked" data-prereq="estadistica">Costos de Producción</div>
+<div class="ciclo">
+  <div class="curso locked" data-id="micro" data-prereq="bioquimica,biomol">Microbiología Veterinaria</div>
+  <div class="curso locked" data-id="mej_gen" data-prereq="biomol">Mejoramiento Genético</div>
+  <div class="curso locked" data-id="inmuno" data-prereq="bioquimica,biomol">Inmunología Veterinaria</div>
+  <div class="curso locked" data-id="fisiologia" data-prereq="biofisica,bioquimica">Fisiología Animal</div>
+  <div class="curso locked" data-id="deonto" data-prereq="desempeno">Deontología y Bioética Veterinaria</div>
+  <div class="curso locked" data-id="costos" data-prereq="estadistica">Costos de Producción</div>
 </div>
-</div>
-</div>
+</section>
 
 <!-- ================= TERCER AÑO ================= -->
-<div class="year">
+<section>
 <h2>Tercer Año</h2>
 
-<div class="cycle">
 <h3>Ciclo 5</h3>
-<div class="courses">
-  <div class="course locked" data-prereq="fisiologia">Reproducción Animal</div>
-  <div class="course locked" data-prereq="micro">Patología Veterinaria I</div>
-  <div class="course locked" data-prereq="zoologia">Parasitología Veterinaria</div>
-  <div class="course locked" data-prereq="fisiologia">Nutrición y Alimentación Animal</div>
-  <div class="course locked" data-prereq="micro">Farmacología y Toxicología Veterinaria</div>
-  <div class="course">Base para Diag. Clínico y Enfermería Veterinaria</div>
-</div>
+<div class="ciclo">
+  <div class="curso locked" data-id="repro" data-prereq="fisiologia">Reproducción Animal</div>
+  <div class="curso locked" data-id="patologia1" data-prereq="histologia,inmuno">Patología Veterinaria I</div>
+  <div class="curso locked" data-id="parasito" data-prereq="zoologia,inmuno">Parasitología Veterinaria</div>
+  <div class="curso locked" data-id="nutricion" data-prereq="fisiologia">Nutrición y Alimentación Animal</div>
+  <div class="curso locked" data-id="farmaco" data-prereq="micro,fisiologia">Farmacología y Toxicología</div>
+  <div class="curso locked" data-id="base_diag" data-prereq="fisiologia">Base Diagnóstico Clínico</div>
 </div>
 
-<div class="cycle">
 <h3>Ciclo 6</h3>
-<div class="courses">
-  <div class="course locked">Utilización de Pastos y Forraje</div>
-  <div class="course locked">Patología Veterinaria II</div>
-  <div class="course locked">Epidemiología Veterinaria</div>
-  <div class="course">Enfermedades de Aves</div>
-  <div class="course locked">Anestesia en Animales Domésticos y Silvestres</div>
-  <div class="course locked">Administración y Gestión de Negocios</div>
+<div class="ciclo">
+  <div class="curso locked" data-id="pastos" data-prereq="nutricion">Utilización de Pastos y Forraje</div>
+  <div class="curso locked" data-id="patologia2" data-prereq="patologia1">Patología Veterinaria II</div>
+  <div class="curso locked" data-id="epidemiologia" data-prereq="parasito">Epidemiología Veterinaria</div>
+  <div class="curso unlocked" data-id="aves">Enfermedades de Aves</div>
+  <div class="curso unlocked" data-id="aves" data-prereq="patologia1">Enfermedades de Aves</div>
+  <div class="curso locked" data-id="anestesia" data-prereq="farmaco">Anestesia Veterinaria</div>
+  <div class="curso locked" data-id="admin" data-prereq="costos">Administración y Gestión</div>
 </div>
-</div>
-</div>
+</section>
 
 <!-- ================= CUARTO AÑO ================= -->
-<div class="year">
+<section>
 <h2>Cuarto Año</h2>
 
-<div class="cycle">
 <h3>Ciclo 7</h3>
-<div class="courses">
-  <div class="course locked">Fisiopatología Veterinaria</div>
-  <div class="course locked">Producción y Enfermedades de Equinos</div>
-  <div class="course locked">Producción y Enfermedades de Porcinos</div>
-  <div class="course locked">Producción de Aves</div>
-  <div class="course locked">Formulación y Evaluación de Proyectos Pecuarios</div>
-  <div class="course locked">Salud Pública Veterinaria y Zoonosis</div>
-</div>
+<div class="ciclo">
+  <div class="curso locked" data-id="fisiopato" data-prereq="patologia2">Fisiopatología Veterinaria</div>
+  <div class="curso locked" data-id="equinos" data-prereq="repro">Producción y Enf. de Equinos</div>
+  <div class="curso locked" data-id="porcinos" data-prereq="repro">Producción y Enf. de Porcinos</div>
+  <div class="curso locked" data-id="produ_aves" data-prereq="nutricion">Producción de Aves</div>
+  <div class="curso locked" data-id="proyectos" data-prereq="admin">Formulación de Proyectos</div>
+  <div class="curso locked" data-id="salud_pub" data-prereq="epidemiologia">Salud Pública Veterinaria</div>
 </div>
 
-<div class="cycle">
 <h3>Ciclo 8</h3>
-<div class="courses">
-  <div class="course locked">Tecnología e Industrialización de Alimentos</div>
-  <div class="course locked">Diagnóstico por Imágenes MVZ</div>
-  <div class="course locked">Enfermedades de Rumiantes</div>
-  <div class="course locked">Producción de Bovinos</div>
-  <div class="course locked">Enfermedades de Caninos y Felinos</div>
-  <div class="course locked">Patología Clínica Veterinaria</div>
-  <div class="course locked">Seminario de Tesis I</div>
+<div class="ciclo">
+  <div class="curso locked" data-id="tec_alimentos" data-prereq="micro">Tecnología de Alimentos</div>
+  <div class="curso locked" data-id="diag_img" data-prereq="patologia2">Diagnóstico por Imágenes</div>
+  <div class="curso locked" data-id="rumiantes" data-prereq="nutricion">Enfermedades de Rumiantes</div>
+  <div class="curso locked" data-id="bovinos" data-prereq="repro">Producción de Bovinos</div>
+  <div class="curso locked" data-id="caninos" data-prereq="patologia2">Enf. Caninos y Felinos</div>
+  <div class="curso locked" data-id="pat_clinica" data-prereq="patologia2">Patología Clínica</div>
+  <div class="curso locked" data-id="tesis1" data-prereq="fisiopato,equinos,porcinos,produ_aves,proyectos,salud_pub">Seminario de Tesis I</div>
 </div>
-</div>
-</div>
+</section>
 
 <!-- ================= QUINTO AÑO ================= -->
-<div class="year">
+<section>
 <h2>Quinto Año</h2>
 
-<div class="cycle">
 <h3>Ciclo 9</h3>
-<div class="courses">
-  <div class="course locked">Seminario de Tesis II</div>
-  <div class="course locked">Inspección e Higiene de Alimentos</div>
-  <div class="course locked">Disease and Wildlife Management</div>
-  <div class="course locked">Legislación y Certificación Veterinaria</div>
-  <div class="course locked">Cirugía Veterinaria</div>
-  <div class="course locked">Producción y Enfermedades de Cuyes y Conejos</div>
-  <div class="course locked">Semiología Veterinaria</div>
-</div>
+<div class="ciclo">
+  <div class="curso locked" data-id="tesis2" data-prereq="tesis1">Seminario de Tesis II</div>
+  <div class="curso locked" data-id="inspeccion" data-prereq="tec_alimentos">Inspección e Higiene</div>
+  <div class="curso locked" data-id="wildlife" data-prereq="patologia1">Disease and Wildlife Management</div>
+  <div class="curso locked" data-id="legislacion" data-prereq="salud_pub">Legislación Veterinaria</div>
+  <div class="curso locked" data-id="cirugia" data-prereq="anestesia,fisiopato">Cirugía Veterinaria</div>
+  <div class="curso locked" data-id="cuyes" data-prereq="nutricion">Cuyes y Conejos</div>
+  <div class="curso locked" data-id="semiologia" data-prereq="pat_clinica">Semiología Veterinaria</div>
 </div>
 
-<div class="cycle">
 <h3>Ciclo 10</h3>
-<div class="courses">
-  <div class="course">Prácticas Finales 1</div>
-  <div class="course">Prácticas Finales 2</div>
-  <div class="course">Trabajo de Investigación</div>
+<div class="ciclo">
+  <div class="curso locked" data-id="pf1" data-prereq="tesis2">Prácticas Finales 1</div>
+  <div class="curso locked" data-id="pf2" data-prereq="tesis2">Prácticas Finales 2</div>
+  <div class="curso locked" data-id="trabajo_inv" data-prereq="tesis2">Trabajo de Investigación</div>
 </div>
-</div>
-</div>
+</section>
 
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
-
+~
