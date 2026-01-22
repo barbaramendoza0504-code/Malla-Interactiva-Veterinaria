@@ -1,102 +1,74 @@
-/* IMPORTAR FUENTES */
 @import url('https://fonts.googleapis.com/css2?family=Harrington&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=HarmonyOS+Sans&display=swap');
 
-/* RESET */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* FONDO GENERAL */
 body {
-  font-family: 'HarmonyOS Sans', sans-serif;
+  margin: 0;
   background-image: url("img/fondo.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   background-attachment: fixed;
-  color: #5a0f2e;
+  font-family: 'HarmonyOS Sans', sans-serif;
 }
 
-/* CONTENEDOR */
-.container {
+/* CONTENEDOR TRANSPARENTE */
+.overlay {
+  background-color: rgba(255, 245, 248, 0.85);
+  min-height: 100vh;
   padding: 40px 60px;
-  backdrop-filter: none; /* QUITAMOS OPACIDAD */
 }
 
-/* TÍTULO PRINCIPAL */
+/* TÍTULOS */
 h1 {
   text-align: center;
   font-family: 'Harrington', cursive;
-  font-size: 42px;
-  margin-bottom: 10px;
   color: #7a0c34;
 }
 
-/* SUBTÍTULO */
 .subtitle {
   text-align: center;
   margin-bottom: 40px;
 }
 
-/* AÑO */
-.year {
-  margin-top: 50px;
-}
-
+/* AÑOS Y CICLOS */
 .year h2 {
   font-family: 'Harrington', cursive;
-  font-size: 32px;
+  margin-top: 40px;
   border-bottom: 2px solid #b84c6a;
-  margin-bottom: 20px;
-}
-
-/* CICLO */
-.cycle {
-  margin-bottom: 30px;
 }
 
 .cycle h3 {
-  font-family: 'Harrington', cursive;
-  margin-bottom: 15px;
+  margin: 20px 0 10px;
 }
 
-/* CURSOS EN COLUMNAS */
+/* CURSOS */
 .courses {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 15px;
 }
 
-/* CURSO */
 .course {
-  font-family: 'HarmonyOS Sans', sans-serif;
   background-color: #8b0a3c;
   color: white;
   padding: 15px;
-  text-align: center;
   border-radius: 14px;
+  text-align: center;
   cursor: pointer;
-  transition: transform 0.2s, background-color 0.2s;
+  transition: transform 0.2s;
+  font-family: 'HarmonyOS Sans', sans-serif;
 }
 
-/* APROBADO */
+.course:hover {
+  transform: scale(1.05);
+}
+
+/* ESTADOS */
+.course.locked {
+  background-color: #d1a1b2;
+  cursor: not-allowed;
+}
+
 .course.approved {
   background-color: #f4a6b8;
   color: #5a0f2e;
 }
-
-/* BLOQUEADO */
-.course.locked {
-  background-color: #d8b0bd;
-  color: #7a5a66;
-  cursor: not-allowed;
-}
-
-/* HOVER */
-.course:not(.locked):hover {
-  transform: scale(1.05);
-}
-
